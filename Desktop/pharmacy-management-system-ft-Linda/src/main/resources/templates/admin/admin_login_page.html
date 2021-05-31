@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+    </script>
+</head>
+<body style="box-sizing:border-box; font-family: 'Poppins', sans-serif;font-size:13px">
+<nav class="navbar navbar-light">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand navbar-text navbar-left" href="#">
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="container mt-5 ">
+
+
+        <div class="text-center">
+            <h3 style="color:#00758F">Admin Login </h3> <hr>
+        </div>
+        <form th:action="@{/admin/login}" method="post"
+              style="max-width:600px;margin: 0 auto;"
+              th:object="${admin}"
+        >
+            <fieldset>
+
+                <div th:if="${param.error}" >
+
+                    <div class="alert alert-danger" role="alert">
+                     <small>Invalid Username or password <span>&#128550;</span></small>
+                    </div>
+                </div>
+
+
+                <div th:if="${param.logout}" >
+
+                    <div class="alert alert-info" role="alert">
+                        <small>You have been logged out !!</small>
+                    </div>
+                </div>
+
+                <div class="input-group m-4 ">
+
+                    <input type="text" class="form-control"  th:field="*{email}" id="email" placeholder="Email" aria-describedby="at" required>
+
+                </div>
+
+
+                <div class="input-group m-4 ">
+                    <input type="password" class="form-control" th:field="*{password}" placeholder="Password" aria-describedby="lock" required>
+                </div>
+
+                <div class="m-4">
+             <small class="float-right"><a class="text-red" th:href="@{/forgot_admin_password}">Forgot Password?</a></small>
+            </div>
+
+            <div class="m-4">
+                <small>Are you New?<a th:href="@{/admin/register}"> Click here to Register</a></small>
+            </div>
+            <div class="m-4" >
+                <button  style="width:25%;margin-right:250px;background:#00758F;border:none" class="btn btn-dark rounded-pill p-2"><a class="text-white" th:href="@{/login}">Login As Staff</a></button>
+                <button type="submit" style="width:25%;border:none" class="btn btn-dark rounded-pill p-2 ">Log In</button>
+            </div>
+
+
+
+            </fieldset>
+
+
+        </form>
+
+
+</div>
+
+</body>
+</html>

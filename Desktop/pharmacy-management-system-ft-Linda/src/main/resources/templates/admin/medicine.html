@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>All Medicines</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body style="box-sizing:border-box; font-family: 'Poppins', sans-serif;font-size:13px">
+<div class="container " layout:fragment="content">
+    <h5>
+        Welcome <b>[[${#request.userPrincipal.principal.AdminFullName}]]</b> <span>&#128075;&#127997;</span>
+    </h5>
+<div class="row">
+    <div class="col-md-8">
+        <h3>Medicine</h3>
+    </div>
+        <div class=" navbar-right mt-2 col-md-4">
+            <div class="row">
+                <form th:action="@{/logout}"  method="post">
+                    <a  class="text-dark border-0 mr-2">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                    </a>
+                </form>
+                <a class="text-dark" th:href="@{/medicines/export}">
+                    <i class="fa fa-print" aria-hidden="true"></i>
+                </a>
+            </div>
+
+        </div>
+</div>
+    <hr>
+    <div class="  navbar-right ">
+    <form th:action="@{/list_medicines}" >
+        <div class="input-group navbar-left " th:action="@{/list_medicines}">
+            <input type="text" class="form-control " name="keyword" id="keyword"  th:value="${keyword}" size="50" placeholder="Search for Medicine" >
+            <div class="input-group-append " >
+                <button class="btn btn-outline-dark " type="submit">Search</button>
+            </div>
+        </div>
+    </form>
+    </div>
+    <div class="col-md-12" style="height:50px">
+
+    </div>
+
+    <div >
+        <table class="table table-hover">
+            <thead class="thead">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Date Of Expiry</th>
+                <th>Drug Status</th>
+                <th>Category</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="medicine: ${listMedicines}">
+                <td th:text="${medicine.id}">ID</td>
+                <td th:text="${medicine.name}">Name</td>
+                <td th:text="${medicine.price}">Price</td>
+                <td th:text="${medicine.quantity}">Quantity</td>
+                <td th:text="${medicine.dateOfExpiry}">Date Of Expiry</td>
+
+                <td>
+                    <span th:if="${medicine.drugStatus ==0}"class="badge badge-danger">Expired</span>
+                    <span th:if="${medicine.drugStatus ==1}"class="badge badge-success">Good</span>
+                </td>
+
+                <td th:text="${medicine.category.name}">Category</td>
+                <td><a th:href="@{'/delete_medicine/' + ${medicine.id}}"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+                <td><a style="color=red" href="/delete_admin"><i class="fa fa-edit" aria-hidden="true"></i></a></td>
+            </tr>
+
+            </tbody>
+
+        </table>
+    </div>
+
+<!--Button and Modal for adding medicine-->
+<button type="button" class="btn btn-dark right" data-toggle="modal" data-target="#addMedicine">Add Medicine</button>
+
+<div class="modal fade" id="addMedicine" tabindex="-1" role="dialog" aria-labelledby="add Medicine" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Medicine</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form  th:action="@{/process_addMedicine}" method="post"
+                       th:object="${medicine}">
+                    <div class="form-group">
+                        <label for="name" class="col-form-label">Drug Name:</label>
+                        <input type="text" class="form-control" id="name" field="*{name}"required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="price" class="col-form-label">Price:</label>
+                        <input type="text" class="form-control" id="price" field="*{price}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity" class="col-form-label">Quantity:</label>
+                        <input type="number" class="form-control" id="quantity" field="*{quantity}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date" class="col-form-label">Expiry Date:</label>
+                        <input type="date" class="form-control" id="date" field="*{dateOfExpiry}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="col-form-label">Drug Status:</label>
+                        <input type="number" class="form-control" id="status" field="*{drugStatus}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <input type="text" class="form-control" id="description" field="*{description}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imgUrl" class="col-form-label">Img URL:</label>
+                        <input type="url" class="form-control" id="imgUrl" field="*{imgUrl}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="col-form-label">Category:</label>
+                        <select class="custom-select" id="category">
+                            <option selected>Pick...</option>
+                            <option value="1">Pain Killers</option>
+                            <option value="2">Antibiotics</option>
+                            <option value="3">Anti Allergy</option>
+                        </select>
+
+            </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-dark">Submit</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</body>
+</html>

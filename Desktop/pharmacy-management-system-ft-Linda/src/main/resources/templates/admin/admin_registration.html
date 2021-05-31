@@ -1,0 +1,89 @@
+    <!DOCTYPE html>
+    <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin Registration</title>
+        <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+        <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+
+    </head>
+    <body style="box-sizing:border-box; font-family: 'Poppins', sans-serif;font-size:13px">
+    <nav class="navbar navbar-light">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand navbar-text navbar-left" href="#">
+
+                </a>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container ">
+
+<<<<<<< HEAD
+
+            <div class="text-center mt-5">
+=======
+        <div class="w3-card p-4 ">
+            <div class="text-center">
+>>>>>>> 1eea566e86b98dbc68b67422c0cd974a4d16caec
+                <h3 style="color:#00758F">Admin Registration </h3> <hr>
+
+            </div>
+            <form th:action="@{/process_adminRegister}" method="post"
+                  style="max-width:600px;margin: 0 auto;"
+                  th:object="${admin}"
+            >
+                <fieldset>
+                    <div th:if="${param.error}" class="alert alert-danger m-4">
+                        Invalid UserName
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-info m-4">
+                        You have been logged Out
+                    </div>
+                    <div class="input-group m-4 ">
+                        <input type="text" class="form-control" placeholder="First Name" th:field="*{firstName}" required aria-describedby="firstName" minlength="2" maxlength="45">
+
+                        <input type="text" class="form-control" placeholder="Last Name" th:field="*{lastName}" required aria-describedby="lastName">
+                    </div>
+                    <div class="input-group m-4 ">
+
+                        <input type="email" class="form-control" placeholder="Email" th:field="*{email}" required  aria-describedby="email" maxlength="45">
+                    </div>
+
+                    <div class="input-group m-4">
+
+                        <input type="password" class="form-control" placeholder="Password"  required  aria-describedby="password">
+                    </div>
+                    <div class="input-group m-4">
+
+                        <input type="password" class="form-control" placeholder="Confirm Password" th:field="*{password}" required  aria-describedby="confirmPassword">
+
+                    </div>
+                    <div class="m-4 text-center">
+                        <small class="">Are you already registered?<a th:href="@{/LoginAdmin}">Click here to Login</a></small>
+                    </div>
+                    <div class="m-4" >
+                        <button  style="width:25%;margin-right:250px;background:#00758F;border:none" class="btn btn-dark rounded-pill p-2"><a class="text-white" th:href="@{/login}">Login As Staff</a></button>
+                        <button type="submit" style="width:25%;border:none" class="btn btn-dark rounded-pill p-2 ">Register</button>
+                    </div>
+
+                </fieldset>
+
+
+            </form>
+        </div>
+
+<<<<<<< HEAD
+=======
+    </div>
+>>>>>>> 1eea566e86b98dbc68b67422c0cd974a4d16caec
+
+    </body>
+    </html>
+

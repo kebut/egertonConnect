@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+    </script>
+</head>
+<body style=" font-family: 'Poppins', sans-serif; font-size:13px">
+<nav class="navbar navbar-light">
+
+    <div class="container" style="font-size:13px">
+        <div class="navbar-header">
+                <a class="navbar-brand navbar-text navbar-right" th:href="@{/LoginClerk}">Clerk Login</a>
+                <a class="navbar-brand navbar-text navbar-right " th:href="@{/CustomerOnlineHome}">Online Customer</a>
+
+        </div>
+    </div>
+</nav>
+<div class=" container mt-30  p-5 " >
+
+    <div class="row" style="margin-top:130px" >
+        <div class="col-md-5" style="letter-spacing:0.03em">
+            <div>
+                <h2 style="color:#00758F">PharmacyForYou</h2>
+            </div>
+            <div>
+                <blockquote>
+                    <h4>
+                        Welcome to our PharmacyForYou.
+                    </h4>
+                    <footer>Saving lives one at a time!</footer>
+                </blockquote>
+                <button style="background:#00758F;color:#fff; height:30%;border:none;width:30%;padding:10px;margin:10px" class="rounded-pill "><a class="text-white" th:href="@{/LoginAdmin}">Admin Login</a> </button>
+                <button style="background:#000;color:#fff; height:30%;border:none;width:30%;padding:10px; margin:10px" class="rounded-pill "> <a class="text-white" th:href="@{/login}">Staff Login</a></button>
+                <!--   <h3> <a th:href="@{/register}">Proceed to Staff Registration</a> </h3>
+                   <h3> <a th:href="@{/admin/register}">Proceed to Admin Registration</a> </h3>
+           -->
+            </div>
+        </div>
+
+        <div class="col-md-4">
+                <img style="width:180%;background-size: 200px 300px;" th:src="@{photos/medical_care.svg}">
+
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

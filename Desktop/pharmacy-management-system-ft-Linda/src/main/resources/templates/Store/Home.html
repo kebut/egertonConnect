@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+    </script>
+</head>
+<body  style="box-sizing:border-box; font-family: 'Poppins', sans-serif;font-size:13px">
+<!--Top Nav bar-->
+
+<nav class="navbar container navbar-expand-sm  navbar-light p-3">
+    <a class="navbar-brand  "  href="#">PharmacyForYou</a>
+    <div class="col-md-7"></div>
+    <div class="navbar-right">
+    <ul class="navbar-nav">
+
+        <li class="nav-item ">
+            <a class="nav-link" href="/home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item ">
+            <a class="nav-link" href="/products">Products</a>
+        </li>
+
+        <li class="nav-item">
+
+            <a class="nav-link" th:href="@{/LoginCustomer}">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/customer/register}">Register</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" th:href="@{/customer/cart}">Cart</a>
+
+        </li>
+       <!-- <form class="form-inline" action="/action_page.php">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-dark" type="submit">Search</button>
+        </form>-->
+    </ul>
+
+    </div>
+</nav>
+
+<!--Hero Image-->
+<div class="container" style="#555">
+
+    <div class="row" style="margin-top:130px" >
+        <div class="col-md-7" style="letter-spacing:0.03em">
+            <div>
+                <h2 style="color:#00758F">PharmacyForYou</h2>
+            </div>
+            <div>
+                <blockquote>
+                    <h4>
+                        Welcome to our PharmacyForYou.
+                    </h4>
+                    <footer>Saving lives one at a time!</footer>
+                </blockquote>
+            </div>
+            <div>
+                <button style="background:#00758F;color:#fff; height:30%;border:none;width:30%;padding:10px; margin:10px;margin-left:none" class="rounded-pill "> <a class="text-white" th:href="@{/ProductsOnlineHome}">View Products &#8594; </a></button>
+
+                <!--   <h3> <a th:href="@{/register}">Proceed to Staff Registration</a> </h3>
+                   <h3> <a th:href="@{/admin/register}">Proceed to Admin Registration</a> </h3>
+           -->
+            </div>
+        </div>
+        <div class="col-md-4 mt-10">
+            <div class="">
+                <img style="width:185%;background-size: 200px 300px;" th:src="@{static/photos/medicine2.svg}">
+            </div>
+        </div>
+    </div>
+
+
+    <!-- About us-->
+
+    <div class="row p-1">
+        <div class="col-12">
+          <h3  style="margin-top:140px;">ABOUT US</h3>
+            <hr>
+            <p class="p-3">In publishing and graphic design, Lorem ipsum is a placeholder text commonly
+                used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
+                Lorem ipsum may be used as a placeholder before final copy is available. <br>
+                What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?</p>
+            <p class="p-3">In publishing and graphic design, Lorem ipsum is a placeholder text commonly
+                used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
+                Lorem ipsum may be used as a placeholder before final copy is available. <br>
+                What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting industry Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book it has?</p>
+        </div>
+
+        <div class="p-3 text-right">
+            <button  style="background:#000;float:right;color:#fff; height:auto;border:none;width:auto;padding:10px; margin:10px;margin-left:none" class="rounded-pill float-left "> <a class="text-white" th:href="@{/ProductsOnlineHome}">View Products &#8594; </a></button>
+
+        </div>
+
+    </div>
+
+    <!--Some Products--->
+    <div class="row p-3" style="margin-top:80px">
+        <div class="col-md-12" style="margin-bottom:30px">
+            <h3 class="text-center">FEATURED PRODUCTS</h3> <hr>
+        </div>
+
+       <div class="col-md-3">
+           <div class="card p-3" style="width:16rem;border:none;box-shadow:0px 0px 20px 0px rgba(0,0,0,0.1);" >
+               <img class="card-img-top" th:src="@{static/photos/multivitamin}" alt="Multivitamin">
+               <div class="card-body">
+                   <h5 class="card-title">Chloroquin</h5>
+                   <p class="card-text">Ksh 1,234</p>
+                   <a href="#" class="btn btn-dark">View</a>
+               </div>
+           </div>
+       </div>
+        <div class="col-3">
+            <div class="card p-3" style="width:16rem;border:none;box-shadow:0px 0px 20px 0px rgba(0,0,0,0.1);">
+                <img class="card-img-top" th:src="@{static/photos/multivitamin}" alt="Multivitamin">
+                <div class="card-body">
+                    <h5 class="card-title">Multivitamins</h5>
+                    <p class="card-text">Ksh 2,000</p>
+                    <a href="#" class="btn btn-dark">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card p-3" style="width:16rem;border:none;box-shadow:0px 0px 20px 0px rgba(0,0,0,0.1);">
+                <img class="card-img-top" th:src="@{/photos/multivitamin.jpg}" alt="Multivitamin">
+                <div class="card-body">
+                    <h5 class="card-title">Panadol Extra</h5>
+                    <p class="card-text">Ksh. 10</p>
+                    <a href="#" class="btn btn-dark">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="card p-3" style="width:16rem;border:none;width: 18rem;box-shadow:0px 0px 20px 0px rgba(0,0,0,0.1);">
+                <img class="card-img-top" width="300px" height="auto"  th:src="@{/photos/multivitamin.jpg}" alt="Multivitamin">
+                <div class="card-body">
+                    <h5 class="card-title">Nebulizer</h5>
+                    <p class="card-text">Ksh. 10,000</p>
+                    <a href="#" class="btn btn-dark">View</a>
+                </div>
+            </div>
+        </div>
+        <div class="p-3 float-left">
+            <button  style="background:#00758F;color:#fff; height:auto;border:none;padding:10px; margin:10px;margin-left:none" class="rounded-pill "> <a class="text-white" th:href="@{/ProductsOnlineHome}">More &#8594; </a></button>
+
+        </div>
+          </div>
+    <!-- Reviews section-->
+    <div style="margin-bottom:50px">
+      <div class="small-container text-center" style="margin-top:50px;font-size:12px;cursor:pointer">
+          <div class="row">
+              <div class="col-12">
+                  <h3>REVIEWS</h3><hr>
+              </div>
+              <div class="col-md-4 p-4" style="margin-top:40px;box-shadow:0px 0px 20px 0px rgba(0,0,0,0.1);border-radius:5px">
+                  <i class="fa fa-quote-left" style="color:#FDCC0D;" aria-hidden="true"></i>
+
+                  <p style="color:#777">
+                      In publishing and graphic design, Lorem ipsum is a placeholder text commonly
+                      used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
+                      Lorem ipsum may be used as a placeholder before final copy is available.
+                  </p>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <div>
+                     <h6>Jesse Yegon</h6>
+                  </div>
+              </div>
+              <div class="col-md-4 p-4" style="margin-top:40px;box-shadow:0px 0px 20px 0px rgba(0,0,0,0.1);border-radius:5px">
+                  <i class="fa fa-quote-left" style="color:#FDCC0D;"  aria-hidden="true"></i>
+                  <p style="color:#777">
+                      In publishing and graphic design, Lorem ipsum is a placeholder text commonly
+                      used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
+                      Lorem ipsum may be used as a placeholder before final copy is available.
+                  </p>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <div>
+                      <h6>John Parker</h6>
+                  </div>
+              </div>
+              <div class="col-md-4 p-4" style="margin-top:40px;box-shadow:0px 0px 20px 0px rgba(0,0,0,0.1);border-radius:5px">
+                  <i class="fa fa-quote-left" style="color:#FDCC0D;"  aria-hidden="true"></i>
+                  <p style="color:#777">
+                      In publishing and graphic design, Lorem ipsum is a placeholder text commonly
+                      used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
+                      Lorem ipsum may be used as a placeholder before final copy is available.
+                  </p>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <i class="fa fa-star-o" style="color:#FDCC0D;" aria-hidden="true"></i>
+                  <div>
+                      <h6>Kamau Njuguna</h6>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+    </div>
+
+    <!---Contact Us--->
+    <div class="container " style="margin-top:100px">
+        <!--Section: Contact v.2-->
+        <section class="mb-5 " >
+
+            <!--Section heading-->
+            <h3 class="h1-responsive   text-center mt-5">CONTACT US</h3><hr>
+            <!--Section description-->
+            <p class="text-center w-responsive mx-auto mt-3 mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+                a matter of hours to help you.</p>
+
+            <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-12">
+                    <form id="contact-form" name="contact-form"  method="POST">
+
+                        <!--Grid row-->
+                        <div class="row center">
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <label for="name" class="">Your name</label>
+                                    <input type="text" id="name" name="name" class="form-control">
+
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                            <!--Grid column-->
+                            <div class="col-md-6">
+                                <div class="md-form mb-0">
+                                    <label for="email" class="">Your email</label>
+                                    <input type="text" id="email" name="email" class="form-control">
+
+                                </div>
+                            </div>
+                            <!--Grid column-->
+
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+                            <div class="col-md-12 mt-3">
+                                <div class="md-form mb-0">
+                                    <label for="subject" class="">Subject</label>
+                                    <input type="text" id="subject" name="subject" class="form-control">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                        <!--Grid row-->
+                        <div class="row">
+
+                            <!--Grid column-->
+                            <div class="col-md-12 mt-3">
+
+                                <div class="md-form">
+                                    <label for="message">Your message</label>
+                                    <textarea type="text" id="message" name="message" rows="3" class="form-control md-textarea"></textarea>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <!--Grid row-->
+
+                    </form>
+
+                    <div class="text-center mt-3 text-md-left">
+                        <a class="btn btn-dark text-white">Send</a>
+                    </div>
+                    <div class="status"></div>
+                </div>
+                <!--Grid column-->
+
+
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+</div>
+<!--FOOTER--->
+<div class="footer " style="background:#000;color:#fff">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-12 mt-3 text-center ">
+                <p class="text-center p-3">Copyright &#169; 2021</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

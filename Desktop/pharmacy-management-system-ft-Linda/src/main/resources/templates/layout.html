@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Redressed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/3.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+            crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <title>Layout</title>
+</head>
+<body style="font-family: 'Poppins', sans-serif;">
+
+<!-- Sidebar -->
+<div class="w3-sidebar  w3-bar-block "  style="width:15%;background:#00758F;color:#fff">
+    <!-- Profile -->
+    <div class="w3-card w3-round row  p-4">
+        <div class="w3-container">
+            <p class=""><img th:src="@{photos/avatar.jpg}" class="w3-circle" style="height:55px;width:55px" alt="Avatar"></p>
+
+        </div>
+    </div>
+    <div>
+        <h3 style="font-family: 'Redressed', cursive;" class="w3-bar-item mt-5 ">PHARMACY</h3>
+    </div>
+
+    <div>
+    <a href="/admin/list_medicines" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-briefcase  p-3"></i>MEDICINE</a>
+    <a href="/admin/list_users" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-user  p-3"></i>STAFF</a>
+    <a href="/admin/list_admins" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-lock  p-3"></i>ADMIN</a>
+    <a href="/admin/list_suppliers" class="w3-bar-item w3-button w3-hover-white"><i class="fa fa-truck  p-3"></i>SUPPLIERS</a>
+    </div>
+</div>
+
+<!-- Page Content -->
+<div style="margin-left:15%">
+<!--Search Bar -->
+    <nav class="navbar navbar-light">
+            <div class="input-group navbar-left ">
+
+                </div>
+
+    </nav>
+    <!--Content of the page-->
+    <div layout:fragment="content" class="container">
+
+
+    </div>
+</div>
+</body>
+</html>

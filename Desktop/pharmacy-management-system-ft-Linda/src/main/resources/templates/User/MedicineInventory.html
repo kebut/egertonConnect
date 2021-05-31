@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Medicines</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <div >
+
+        <section>
+            <!--navbar-->
+            <nav class="navbar navbar-light ">
+                <div class="container-fluid">
+                    <span class="navbar-brand mb-0 h1">Inventory</span>
+                    <div class=" navbar-right ml-4 mr-4 mt-2">
+                        <form th:action="@{/logout}"  method="post">
+                            <a style="color:indigo" class=" border-0">
+                                <i class="fa fa-sign-out " aria-hidden="true"></i>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container" style="padding: 2rem">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="input-group navbar-left " th:action="@{/admin/list_medicines}">
+                            <input type="text" class="form-control rounded-pill" name="keyword" id="keyword"  th:value="${keyword}" size="50" placeholder="Search for Medicine" >
+                            <div class="input-group-append " >
+                                <button class="btn btn-outline-dark rounded-pill" type="submit">Search</button>
+                            </div>
+
+                        </div>
+                        <table id="myTable" class="table  table-striped">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Drug Status</th>
+                                <th>Category</th>
+                                <!--<th>Prescription</th>-->
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="medicine: ${listMedicines}">
+                                <td th:field="*{medicine.id}">ID</td>
+                                <td th:field="*{medicine.name}">Name</td>
+                                <td th:field="*{medicine.price}">Price</td>
+                                <td th:field="*{medicine.quantity}">Quantity</td>
+                                <td th:field="*{medicine.drugStatus}" >Drug Status</td>
+                                <td th:field="*{medicine.category.name}">Category</td>
+                                <!--    <td th:field="*{medicine.prescription.name}">Prescription</td>-->
+                                <td>
+                                    <input type="checkbox" th:name="idChecked" th:value="${medicine.listMedicines}" />
+                                </td>
+
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-sm">
+                        <div class="card w-100">
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-info"><strong>Item Selected</strong></li>
+                                <li class="list-group-item">Medicine:</li>
+                                <li class="list-group-item">Price:</li>
+                                <li class="list-group-item"> <label  for="qty" class="form-label">Qty</label><input type="number" class="form-control" id="qty"></li>
+                                <li class="list-group-item">Total:</li>
+
+                                <li class="list-group-item">
+                                    <button type="button" class="btn btn-dark right" data-toggle="modal" data-target="#addMedicine"><i class="fas fa-comment-medical"></i>Prescription</button>
+
+                                    <div class="modal fade" id="addMedicine" tabindex="-1" role="dialog" aria-labelledby="add medicine" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" >Prescribe Medicine for the Patient</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <label for="qty" class="form-label">Patient's Name: </label><input type="text" class="form-control"></input>
+                                                    <label for="qty" class="form-label">Age: </label><input type="number" class="form-control" ></input>
+                                                    <label for="qty" class="form-label">Prescription: </label><textarea type="qty" class="form-control" id="category"></textarea>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Create Order</button>
+                                </li>
+
+
+                            </ul>
+
+                            <div class="card-body">
+                                <h5 class="card-title">Customer's Order:</h5>
+                                <table id="" class="table  table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Medicine</th>
+                                        <th>Unit price</th>
+                                        <th>Quantity</th>
+                                        <th>Prescription</th>
+                                        <th>Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr th:each="medicine: ${listMedicines}">
+                                        <th th:field>1</th>
+                                        <td th:field="">Medicine</td>
+                                        <td th:field="">Unit Price</td>
+                                        <td th:field="">Quantity</td>
+                                        <td th:field="">Prescription</td>
+                                        <td th:field="">Total</td>
+
+                                    </tr>
+                                    <tfooter>
+                                        <tr>
+                                            <th>Total Amount: </th>
+                                        </tr>
+                                    </tfooter>
+                                    </tbody>
+                                </table>
+                                <a href="#" class="btn btn-primary">Print invoice</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+</div>
+</body>
+
+
+</html>

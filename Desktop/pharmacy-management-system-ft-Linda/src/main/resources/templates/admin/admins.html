@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout.html"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>List of Admins</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js">
+    </script>
+</head>
+
+<body style="box-sizing:border-box; font-family: 'Poppins', sans-serif;font-size:13px">
+<div class="container " layout:fragment="content">
+    <div class=" row clearfix" >
+
+        <div class="col-md-8">
+            <h4>ADMIN</h4>
+        </div>
+
+        <div class=" mt-2 navbar-right col-md-4">
+            <div class="row">
+                <form th:action="@{/logout}"  method="post">
+                    <a style="color:indigo" class="text-dark border-0">
+                        <i class="fa fa-sign-out mr-2" aria-hidden="true"></i>
+                    </a>
+                </form>
+                    <a style="color:indigo" class="text-dark" th:href="@{/admins/export}">
+                        <i class="fa fa-print" aria-hidden="true"></i>
+                    </a>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <!--Search Bar -->
+    <nav class="navbar navbar-right">
+        <form th:action="@{/admin/list_admins}">
+            <div class="input-group navbar-left " th:action="@{/admin/list_admins}">
+                <input type="text" class="form-control " name="keyword" id="keyword"  th:value="${keyword}" size="50" placeholder="Search for admin" >
+                <div class="input-group-append " >
+                    <button class="btn btn-outline-dark " type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    </nav>
+        <div class="col-md-12" style="height:50px">
+
+        </div>
+    <div>
+        <table class="table  table-hover">
+            <thead class="thead">
+               <tr>
+                   <th>ADMIN ID</th>
+                   <th>E-Mail</th>
+                   <th>First Name</th>
+                   <th>Last Name</th>
+                   <th></th>
+                   <th></th>
+               </tr>
+            </thead>
+
+            <tbody>
+              <tr th:each="admin: ${listAdmins}">
+                  <td th:text="${admin.id}">ADMIN ID</td>
+                  <td th:text="${admin.email}">E-Mail</td>
+                  <td th:text="${admin.firstName}">First Name</td>
+                  <td th:text="${admin.lastName}">Last Name</td>
+
+                  <td><a style="color=red" th:href="@{'/delete_admin/'+ ${admin.id}}"><i class="fa fa-trash-o"  aria-hidden="true"></i></a></td>
+                  <td><a style="color=red"  th:href="@{'/edit_admin/'+ ${admin.id}}"><i class="fa fa-edit" aria-hidden="true" ></i></a></td>
+
+
+              </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!--Button and Modal for adding admin-->
+    <button type="button" class="btn btn-dark right" data-toggle="modal" data-target="#addAdmin">Add Admin</button>
+
+    <div class="modal fade" id="addAdmin" tabindex="-1" role="dialog" aria-labelledby="add Admin" >
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" >Add Admin</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form th:action="@{/process_adminRegister}" method="post"
+                          th:object="${admin}">
+
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">Email:</label>
+
+                            <input type="email" class="form-control" id="email" th:field="*{email}"  required/>
+                            </div>
+
+                        <div class="form-group">
+                            <label  for="firstName" class="col-form-label">First Name:</label>
+                            <input type="text"  class="form-control" id="firstName" th:field="*{firstName}" required
+                                   minlength="2" maxlength="20" />
+
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName" class="col-form-label">Last Name:</label>
+                            <input type="text"  class="form-control" id="lastName" th:field="*{lastName}" required
+                                   minlength="2" maxlength="20" />
+
+                        </div>
+                        <div class="form-group">
+                            <label  for="password" class="col-form-label">Password:</label>
+                            <input type="password" class="form-control" id="password" th:field="*{password}" required
+                                   minlength="6" maxlength="10" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-dark">Submit</button>
+                        </div>
+
+                    </form>
+                </div>
+                <!--div class="modal-footer">
+
+                </div-->
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>
