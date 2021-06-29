@@ -1,0 +1,232 @@
+.rich {
+  color: #011627;
+}
+.red {
+  color: #ff3366;
+}
+.blue {
+  color: #2ec4b6;
+}
+.cu {
+  color: #f6f7f8;
+}
+.ca {
+  color: #20a4f3;
+}
+.spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  overflow: hidden;
+  background: #e1f2fe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner span {
+  font-size: 2rem;
+  animation: fade 1s linear 0s infinite;
+  padding-right: 1rem;
+}
+
+.half-spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid #ff3366;
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 0.5s linear 0s infinite;
+}
+
+.completed {
+  font-size: 2rem;
+  color:#ff3366 ;
+  animation: bigger 1s linear;
+}
+
+@keyframes bigger {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(2);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+.btn{
+  color: #f6f7f8 !important ;
+  background-color: #2ec4b6;
+}
+.register{
+  background-color: #2ec4b6;
+  color: #e1f2fe;
+}
+.te{
+  font-size: 1.5rem;
+}
+.navbar {
+  background-color: #20a4f3;
+
+}
+.navbar-nav{
+  text-decoration: none;
+}
+nav .btn {
+  background-color: #ff3366;
+  color: #f6f7f8;
+}
+nav a:link{
+  color: #f6f7f8 !important;
+}
+
+nav a:visited{
+  color: #f6f7f8 !important;
+}
+
+
+nav a:hover {
+  color: #f6f7f8 !important;
+  background-color: #2ec4b6;
+  padding: 5px;
+  border-radius: 2%;
+}
+nav a:active {
+  color: #f6f7f8 !important;
+  background-color: #2ec4b6;
+  padding: 5px;
+  border-radius: 5%;
+}
+
+
+
+.navbar-toggler {
+  background-color: #fff;
+  color: #2ec4b6;
+}
+#root{
+  background-color: #e1f2fe;
+}
+.bg {
+  background-color: #e1f2fe;
+  color: #011627;
+  font-size: larger;
+}
+.home {
+  background: url(images/bg.jpg);
+  min-height: 620px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: local;
+  
+}
+
+.regist input {
+  /* background-color:#e1f2fe!important;
+  opacity: 0.9;
+   */
+  
+}
+.sign{
+  background-color: #20a4f3 !important;
+  color: #fff !important;
+}
+.regist {
+  color: #ff3366!important;
+} 
+
+.overlay {
+  position: relative;
+  min-height: 620px;
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+.in {
+  margin-top: 10px;
+  border: 2px solid #e1f2fe;
+  border-radius: 50%;
+}
+.we {
+  border: 2px solid #e1f2fe;
+  border-radius: 5%;
+}
+.vi {
+  border: 3px solid #49392c;
+  border-radius: 10%;
+}
+.intro {
+  margin-top: 50px;
+}
+.result-container {
+  height: 40px;
+  width: auto;
+}
+.biding {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+#mainfooter {
+  background-color: #20a4f3;
+  padding-top: 10px;
+  color: #f6f7f8;
+}
+.toc:hover{
+  text-decoration: none;
+  color: #ff3366;
+  }
+
+.toc:active{
+color: #ff3366;
+text-decoration: none;
+}
+
+
+
+
+.mem{
+  height: 8rem;
+}
+
+.hov a:hover{
+  color: #ff3366;
+ text-decoration: none;
+}
+
+
+.hov a:active{
+  color: #ff3366;
+ text-decoration: none;
+}
+
