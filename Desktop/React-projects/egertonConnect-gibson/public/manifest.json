@@ -1,0 +1,25 @@
+{
+  "short_name": "Egerton Connect",
+  "name": "Egerton Connect club",
+  "icons": [
+    {
+      "src": "conn.png",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "conn.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "conn.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#f6f7f8",
+  "background_color": "#e1f2fe"
+}
