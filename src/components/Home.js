@@ -37,7 +37,8 @@ function Home() {
                   </Link>
                   <h3 className="blue"> Reach Us Via </h3>
                   <h5>Email: egertonconnect8@gmail.com</h5>
-                  <h5>Phone: 0705371205 </h5>
+                  <h5>Phone: 07053712 </h5>
+                  <h5>Phone: 0704744808</h5>
                   <h5>Phone: 0743089484</h5>
                 </div>
               </div>
